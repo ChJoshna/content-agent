@@ -33,35 +33,33 @@ Submit any text and get back structured intelligence:
 
 ## 🏗️ Architecture  
 
-This project follows a **tool-augmented single-agent pattern** using Google ADK:
-
 root_agent (content_intelligence_agent)
-│
-├── Tool: analyze_text_stats
-│ → Computes word count, sentence count, reading time
-│ → Stores results in session state
-│
-└── LLM Execution (Gemini)
+- Tool: analyze_text_stats
+→ Computes word count, sentence count, reading time
+→ Stores results in session state
+
+- LLM Execution (Gemini)
 → Reads user input + tool output
 → Generates structured intelligence report
 
 root_agent (content_intelligence_agent)
-│
-├── Tool: analyze_text_stats
-│ → Computes word count, sentence count, reading time
-│ → Stores results in session state
-│
-└── LLM Execution (Gemini)
+
+- Tool: analyze_text_stats
+ → Computes word count, sentence count, reading time
+ → Stores results in session state
+
+─ LLM Execution (Gemini)
 → Reads user input + tool output
 → Generates structured intelligence report
 
+content-agent
+```bash
 content-agent/
-├── agent.py ← Core agent + tool logic
-├── requirements.txt ← Dependencies
-├── .env ← Environment variables (not committed)
-└── README.md ← Project documentation
-
-
+├── agent.py             # Core agent logic + tool integrations
+├── requirements.txt     # Python dependencies
+├── .env                 # Environment variables (keep out of version control)
+├── README.md            # Project documentation in Markdown format
+```
 ---
 
 ## 🛠️ Tech Stack  
@@ -109,7 +107,9 @@ gcloud auth application-default login
 # 6. Run the agent
 python agent.py
 ```
-🔄 How It Works
+---
+
+### 🔄 How It Works
 Step 1 — Tool Execution
 
 The agent first calls:
@@ -155,13 +155,12 @@ Reading Stats:
 • Words: 250
 • Sentences: 15
 • Est. reading time: 1.2 min
+
 ---
-
-
-Explore the features of the agent at:
+### Explore the features of the agent at:
 https://content-service-623667884898.europe-west1.run.app
 
-👤 Author
+## 👤 Author
 
 ChJoshna
 GitHub: https://github.com/ChJoshna
